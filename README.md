@@ -21,7 +21,7 @@ SSH specific options:
   --ssh-port                Host port
   --ssh-user *              User name
   --ssh-password            Password
-  --ssh-path                Publish path on remote server
+  --ssh-path *              Publish path on remote server
 (*) required
 ```
 

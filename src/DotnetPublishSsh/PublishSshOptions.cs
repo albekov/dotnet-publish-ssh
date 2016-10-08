@@ -50,7 +50,9 @@ namespace DotnetPublishSsh
                 }
             }
 
-            if (string.IsNullOrEmpty(options.Host) || string.IsNullOrEmpty(options.User))
+            if (string.IsNullOrEmpty(options.Host) ||
+                string.IsNullOrEmpty(options.User) ||
+                string.IsNullOrEmpty(options.Path))
                 options.PrintHelp = true;
 
             options.Args = args;
