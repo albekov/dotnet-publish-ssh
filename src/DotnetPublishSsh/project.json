@@ -1,8 +1,11 @@
 ﻿{
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "title": "dotnet-publish-ssh",
+  "projectUrl": "https://github.com/albekov/dotnet-publish-ssh",
   "description": "Publish .Net Core app to remote server via SSH",
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "outputName": "dotnet-publish-ssh"
   },
   "packOptions": {
     "repository": {
@@ -22,7 +25,7 @@
     "net451": {},
     "netcoreapp1.0": {
       "imports": "dnxcore50",
-      "dependencies":{
+      "dependencies": {
         "Microsoft.NETCore.App": {
           "type": "platform",
           "version": "1.0.1"

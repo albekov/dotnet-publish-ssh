@@ -68,7 +68,7 @@ namespace DotnetPublishSsh
             var info = new ProcessStartInfo
             {
                 FileName = "dotnet",
-                Arguments = arguments
+                Arguments = "publish " + arguments
             };
 
             var process = Process.Start(info);
