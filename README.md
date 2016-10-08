@@ -36,3 +36,4 @@ SSH specific options:
 - [ ] Private key file authentication
 - [ ] Don't upload unmodified files (checksum)
 - [ ] Config file
+- [ ] Pre/post publish hooks on remote server
