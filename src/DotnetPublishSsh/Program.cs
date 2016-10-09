@@ -36,10 +36,16 @@ namespace DotnetPublishSsh
             Console.WriteLine();
             Console.WriteLine($"Uploading {localFiles.Count} files to {options.User}@{options.User}:{options.Port}{options.Path}");
 
-            var uploader = new Uploader(options);
+            try
+            {
+                var uploader = new Uploader(options);
 
-            uploader.UploadFiles(path, localFiles);
-
+                uploader.UploadFiles(path, localFiles);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error uploading files to server: {ex.Message}");
+            }
             Directory.Delete(localPath, true);
         }
 
