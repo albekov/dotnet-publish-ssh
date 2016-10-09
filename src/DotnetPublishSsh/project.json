@@ -1,5 +1,5 @@
 ﻿{
-  "version": "0.0.3",
+  "version": "0.0.4",
   "title": "dotnet-publish-ssh",
   "projectUrl": "https://github.com/albekov/dotnet-publish-ssh",
   "description": "Publish .Net Core app to remote server via SSH",
