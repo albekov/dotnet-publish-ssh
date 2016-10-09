@@ -98,11 +98,11 @@ namespace DotnetPublishSsh
             Console.WriteLine("Arguments and options are the same as for `dotnet publish`");
             Console.WriteLine();
             Console.WriteLine("SSH specific options:");
-            Console.WriteLine("  --ssh-host                Host address");
+            Console.WriteLine("  --ssh-host *              Host address");
             Console.WriteLine("  --ssh-port                Host port");
-            Console.WriteLine("  --ssh-user                User name");
+            Console.WriteLine("  --ssh-user *              User name");
             Console.WriteLine("  --ssh-password            Password");
-            Console.WriteLine("  --ssh-path                Publish path on remote server");
+            Console.WriteLine("  --ssh-path *              Publish path on remote server");
             Console.WriteLine();
         }
     }
