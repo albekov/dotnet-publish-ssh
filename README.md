@@ -33,7 +33,7 @@ SSH specific options:
 
 - [x] Just works
 - [x] Password authentication
-- [ ] Private key file authentication
+- [x] Private key file authentication
 - [ ] Don't upload unmodified files (checksum)
 - [ ] Config file
 - [ ] Pre/post publish hooks on remote server

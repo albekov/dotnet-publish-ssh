@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Renci.SshNet;
 using System.Linq;
 
 namespace DotnetPublishSsh
@@ -25,10 +24,6 @@ namespace DotnetPublishSsh
             if (!PublishLocal(arguments))
                 return;
 
-            var host = options.Host;
-            var username = options.User;
-            var password = options.Password;
-            var port = options.Port;
             var path = options.Path;
             var localPath = options.LocalPath;
 
@@ -41,11 +36,16 @@ namespace DotnetPublishSsh
             Console.WriteLine();
             Console.WriteLine($"Uploading {localFiles.Count} files to {options.User}@{options.User}:{options.Port}{options.Path}");
 
-            var ci = new ConnectionInfo(host, port, username, new PasswordAuthenticationMethod(username, password));
-            var uploader = new Uploader(ci);
+            try
+            {
+                var uploader = new Uploader(options);
 
-            uploader.UploadFiles(path, localFiles);
-
+                uploader.UploadFiles(path, localFiles);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error uploading files to server: {ex.Message}");
+            }
             Directory.Delete(localPath, true);
         }
 
@@ -98,11 +98,11 @@ namespace DotnetPublishSsh
             Console.WriteLine("Arguments and options are the same as for `dotnet publish`");
             Console.WriteLine();
             Console.WriteLine("SSH specific options:");
-            Console.WriteLine("  --ssh-host                Host address");
+            Console.WriteLine("  --ssh-host *              Host address");
             Console.WriteLine("  --ssh-port                Host port");
-            Console.WriteLine("  --ssh-user                User name");
+            Console.WriteLine("  --ssh-user *              User name");
             Console.WriteLine("  --ssh-password            Password");
-            Console.WriteLine("  --ssh-path                Publish path on remote server");
+            Console.WriteLine("  --ssh-path *              Publish path on remote server");
             Console.WriteLine();
         }
     }
