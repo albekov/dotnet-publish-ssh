@@ -13,9 +13,30 @@ namespace DotnetPublishSsh
         private readonly ConnectionInfo _connectionInfo;
         private readonly HashSet<string> _existingDirectories = new HashSet<string>();
 
-        public Uploader(ConnectionInfo connectionInfo)
+        public Uploader(PublishSshOptions publishSshOptions)
         {
-            _connectionInfo = connectionInfo;
+            _connectionInfo = CreateConnectionInfo(publishSshOptions);
+        }
+
+        private static ConnectionInfo CreateConnectionInfo(PublishSshOptions options)
+        {
+            var authenticationMethods = new List<AuthenticationMethod>();
+
+            if (options.Password != null)
+                authenticationMethods.Add(
+                    new PasswordAuthenticationMethod(options.User, options.Password));
+
+            if (options.KeyFile != null)
+                authenticationMethods.Add(
+                    new PrivateKeyAuthenticationMethod(options.User, new PrivateKeyFile(options.KeyFile)));
+
+            var connectionInfo = new ConnectionInfo(
+                options.Host,
+                options.Port,
+                options.User,
+                authenticationMethods.ToArray());
+
+            return connectionInfo;
         }
 
         public void UploadFiles(string path, ICollection<LocalFile> localFiles)
