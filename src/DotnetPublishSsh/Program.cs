@@ -102,6 +102,7 @@ namespace DotnetPublishSsh
             Console.WriteLine("  --ssh-port                Host port");
             Console.WriteLine("  --ssh-user *              User name");
             Console.WriteLine("  --ssh-password            Password");
+            Console.WriteLine("  --ssh-keyfile             Private OpenSSH key file");
             Console.WriteLine("  --ssh-path *              Publish path on remote server");
             Console.WriteLine();
         }
