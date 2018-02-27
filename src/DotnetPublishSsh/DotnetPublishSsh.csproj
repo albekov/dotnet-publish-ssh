@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Publish .Net Core app to remote server via SSH</Description>
+    <AssemblyTitle>dotnet-publish-ssh</AssemblyTitle>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <TargetFrameworks>net461;netcoreapp1.0;netcoreapp1.1;netcoreapp2.0</TargetFrameworks>
+    <AssemblyName>dotnet-publish-ssh</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>DotnetPublishSsh</PackageId>
+    <PackageTags>publish;deploy;ssh</PackageTags>
+    <PackageProjectUrl>https://github.com/albekov/dotnet-publish-ssh</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/albekov/dotnet-publish-ssh</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SSH.NET" Version="2016.1.0" />
+  </ItemGroup>
+
+</Project>
